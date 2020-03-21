@@ -1,6 +1,6 @@
 .table__histogram-value-container {
     width: calc(100% - 104px);
-    background: #ddd;
+    /*background: #ddd;*/
 }
 
 .table__histogram-value {
