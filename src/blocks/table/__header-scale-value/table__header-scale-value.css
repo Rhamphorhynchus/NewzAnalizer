@@ -1,0 +1,30 @@
+.table__header-scale-value {
+    margin: 0;
+    padding: 0;
+    display:flex;
+    justify-content:center;
+    /*align-items:center;*/
+    /*width: 80px;*/
+    height: 20px;
+    /*border: 1px solid black;*/
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #b6bcbf;
+}
+
+/*
+.table__header-scale-value:first-child {
+    justify-content: start;
+}
+
+.table__header-scale-value:last-child {
+    justify-content: end;
+}
+*/

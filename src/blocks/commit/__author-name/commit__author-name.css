@@ -1,0 +1,22 @@
+.commit__author-name {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    color: #1a1b22;
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .commit__author-name {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .commit__author-name {
+        font-size: 20px;
+    }
+}

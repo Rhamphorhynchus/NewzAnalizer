@@ -1,0 +1,32 @@
+.results-more {
+    display: block;
+    margin: 64px auto 0;
+    width: 288px;
+    height: 64px;
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1B22;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+
+.results-more:hover {
+    /*outline: none;*/
+    background: #347eff;
+    color: #fff;
+    border: none;
+}
+
+.results-more:focus {
+    outline: none;
+    background: #2a65cc;
+    color: #fff;
+    border: none;
+}

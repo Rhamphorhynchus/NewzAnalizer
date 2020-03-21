@@ -1,0 +1,6 @@
+.technology__item-icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    object-fit: none;
+}

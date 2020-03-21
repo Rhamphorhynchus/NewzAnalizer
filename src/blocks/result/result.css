@@ -1,0 +1,16 @@
+@import url('__image/result__image.css');
+@import url('__date/result__date.css');
+@import url('__title/result__title.css');
+@import url('__text/result__text.css');
+@import url('__author/result__author.css');
+
+.result {
+    margin: 0px;
+    padding: 0px;
+    min-height: 576px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}

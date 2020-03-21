@@ -1,0 +1,14 @@
+@import url('../blocks/page/page.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/header/_theme_light/header_theme_light.css');
+@import url('../blocks/link/link.css');
+@import url('../blocks/for-clients/for-clients.css');
+@import url('../blocks/technology/technology.css');
+@import url('../blocks/about/about.css');
+@import url('../blocks/results/results.css');
+@import url('../blocks/results-header/results-header.css');
+@import url('../blocks/results-more/results-more.css');
+@import url('../blocks/results-more/_theme_about/results-more_theme_about.css');
+@import url('../blocks/commits/commits.css');
+@import url('../blocks/commit/commit.css');
+@import url('../blocks/footer/footer.css');

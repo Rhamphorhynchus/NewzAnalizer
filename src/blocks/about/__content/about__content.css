@@ -1,0 +1,28 @@
+.about__content {
+    margin: 0;
+    padding: 0 0 0 56px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .about__content {
+        padding: 0 0 0 48px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .about__content {
+        padding: 0 0 0 40px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .about__content {
+        padding: 0 0 0 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about__content {
+        padding: 0;
+    }
+}

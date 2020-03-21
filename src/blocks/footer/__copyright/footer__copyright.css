@@ -1,0 +1,19 @@
+.footer__copyright {
+    margin: 0;
+    padding: 5px 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #b6bcbf;
+}
+
+@media screen and (max-width: 720px) {
+    .footer__copyright {
+        margin: 0;
+        padding: 40px 0 0 0;
+        width: 100%;
+        order: 1;
+    }
+}

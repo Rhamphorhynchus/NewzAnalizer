@@ -1,0 +1,31 @@
+@import url('__date/commit__date.css');
+@import url('__header/commit__header.css');
+@import url('__avatar/commit__avatar.css');
+@import url('__author/commit__author.css');
+@import url('__author-name/commit__author-name.css');
+@import url('__author-email/commit__author-email.css');
+@import url('__description/commit__description.css');
+
+.commit {
+    width: 400px;
+    min-height: 288px;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .commit {
+        width: 336px;
+        min-height: 242px;
+        padding: 24px 16px 24px 24px ;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .commit {
+        width: 288px;
+        min-height: 262px;
+        padding: 16px 12px 16px 16px ;
+    }
+}

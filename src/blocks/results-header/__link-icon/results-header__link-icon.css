@@ -1,0 +1,7 @@
+.results-header__link-icon {
+    margin: 0;
+    padding: 0 0 6px 0;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}

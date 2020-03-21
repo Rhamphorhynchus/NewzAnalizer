@@ -1,0 +1,24 @@
+@import url('__links/statistics__links.css');
+@import url('__link/statistics__link.css');
+@import url('__link/_root/statistics__link_root.css');
+@import url('__title/statistics__title.css');
+@import url('__items/statistics__items.css');
+@import url('__item/statistics__item.css');
+@import url('__item-total/statistics__item-total.css');
+
+.statistics {
+    margin: 0;
+    padding: 40px 104px 80px;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .statistics {
+        padding: 32px 40px 40px 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .statistics {
+        padding: 16px 16px 24px 16px;
+    }
+}

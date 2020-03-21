@@ -1,0 +1,10 @@
+.statistics__links {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 480px) {
+    .statistics__links {
+        display: none;
+    }
+}

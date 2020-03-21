@@ -1,0 +1,25 @@
+.about__text {
+    margin: 0;
+    padding: 24px 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1a1b22;
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .about__text {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about__text {
+        margin: 0;
+        padding: 0;
+    }
+}
