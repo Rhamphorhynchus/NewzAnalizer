@@ -11,7 +11,16 @@ const isDev = process.env.NODE_ENV === 'development';
 const webpack = require('webpack');
 
 module.exports = {
-    entry: { main: './src/js/index.js' },
+    entry: {
+        index: './src/js/index.js',
+        about: './src/js/about.js',
+        analytics: './src/js/analytics.js'
+    },
+    /*entry: {
+        index: './src/js/index.js',
+        about: './src/js/about.js',
+        analytics: './src/js/analytics.js'
+      },*/
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
@@ -32,26 +41,6 @@ module.exports = {
             test: /\.css$/, // применять это правило только к CSS-файлам
             use: [MiniCssExtractPlugin.loader, 'css-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
         },
-        /*{
-            test: /\.(png|jpg|gif|ico|svg)$/,
-            use: [
-                    'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
-                    {
-                            loader: 'image-webpack-loader',
-                            options: {}
-                    },
-            ]
-        },*/
-        /*{
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            loader: 'file-loader',
-            options: {
-              digest: 'hex',
-              hash: 'sha512',
-              name: 'images/[hash].[ext]',
-              esModule: false,
-            },
-        },*/
         {
             test: /\.(jpe?g|png|gif|svg)$/i,
             use: [
@@ -68,36 +57,14 @@ module.exports = {
                 },
             ]
         },
-        //'image-webpack-loader'
-        /*{
-            test: /\.(eot|ttf|woff|woff2)$/,
-            loader: 'file-loader?name=./vendor/[name].[ext]'
-        },*/
         {
             test: /\.(eot|ttf|woff|woff2)$/,
             loader: 'file-loader?name=./vendor/[name].[ext]'
-        },
-        /*{
-            test: /\.(png|jpg|gif|ico|svg)$/,
-            use: [
-                'file-loader?name=./images/[name].[ext]',
-                {
-                    loader: 'image-webpack-loader',
-                    options: {esModule: false, disable: true,}
-                },
-            ]
-        }*/
-     /*   {
-            test: /\.css$/i,
-            use: [
-                            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                            'css-loader', 
-                            'postcss-loader'
-                ]
-        }*/]
+        },]
     },
     plugins: [ 
-        new MiniCssExtractPlugin({filename: 'style.[contenthash].css',}),
+        //new MiniCssExtractPlugin({filename: 'style.[contenthash].css',}),
+        new MiniCssExtractPlugin({filename: '[name].[contenthash].css',}),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
@@ -112,6 +79,8 @@ module.exports = {
             template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
             filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
           }),
+        new HtmlWebpackPlugin({inject: false, template: './src/about.html', filename: 'about.html'}),
+        new HtmlWebpackPlugin({inject: false, template: './src/analytics.html', filename: 'analytics.html'}),
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
