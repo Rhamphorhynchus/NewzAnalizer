@@ -1,4 +1,4 @@
-# [NewzAnalizer](https://rhamphorhynchus.github.io/newzanalizer/)
+# [NewzAnalizer](https://rhamphorhynchus.github.io/NewzAnalizer/)
 ## Учебный проект. Яндекс.Практикум
 ### NewzAnalizer
 
