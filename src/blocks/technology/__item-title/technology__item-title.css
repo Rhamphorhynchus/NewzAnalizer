@@ -10,4 +10,9 @@
     letter-spacing: 0.2px;
     color: #1A1B22;
     /*border: 1px solid green;*/
+    transition: all 0.15s ease-out;
+}
+
+.technology__item-link:hover .technology__item-title  {
+    color: #b6bcbf;
 }
