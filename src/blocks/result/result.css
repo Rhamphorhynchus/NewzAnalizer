@@ -3,14 +3,25 @@
 @import url('__title/result__title.css');
 @import url('__text/result__text.css');
 @import url('__author/result__author.css');
+@import url('__shadow/result__shadow.css');
 
 .result {
+    position: relative;
     margin: 0px;
     padding: 0px;
     min-height: 576px;
     border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid red;
+    /*overflow: hidden;*/
+    /*border: 1px solid red;*/
     display: flex;
     flex-direction: column;
+    transition: all 0.15s ease-in-out;
+}
+
+.result:hover {
+    transform: translateY(-10px);
+    /*box-shadow: 0 10px 58px rgba(8, 29, 45, 0.1);*/
+    box-shadow: 0 8px 14px rgba(14,21,47,.1), 0 2px 36px rgba(14,21,47,.08);
+    /*background: rgba(8, 29, 45, 0.1);
+    filter: blur(58px);*/
 }
