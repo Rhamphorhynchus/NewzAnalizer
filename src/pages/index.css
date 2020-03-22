@@ -14,3 +14,7 @@
 @import url('../blocks/results-more/results-more.css');
 @import url('../blocks/about/about.css');
 @import url('../blocks/footer/footer.css');
+
+.invisible {
+    display: none;
+}
