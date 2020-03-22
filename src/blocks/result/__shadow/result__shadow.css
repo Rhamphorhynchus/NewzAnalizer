@@ -1,0 +1,15 @@
+.result__shadow {
+    margin: 0 auto;
+    width: 352px;
+    height: 80px;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.15s ease-in-out;
+}
+
+.result:hover .result__shadow {
+    background: rgba(8, 29, 45, 0.1);
+    filter: blur(58px);
+    transform: translateY(10px);
+}
