@@ -36,6 +36,11 @@
 }
 }
 
+.table__histogram-value-0 {
+    width: 0;
+    color: #1a1b22;
+    background: none;
+  }
 
 .table__histogram-value-1 {
     width: 1%;

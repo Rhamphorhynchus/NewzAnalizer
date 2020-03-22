@@ -30,11 +30,11 @@
                 </fieldset>
             </form>
         </section>
-        <section class="search-result in-progress">
+        <section class="search-result in-progress invisible">
             <div class="in-progress__animation"></div>
             <p class="in-progress__text">Идет поиск новостей...</p>
         </section>
-        <section class="search-result not-found">
+        <section class="search-result not-found invisible">
             <div class="not-found__image"></div>
             <h2 class="not-found__title">Ничего не найдено</h2>
             <p class="not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
@@ -121,6 +121,19 @@
             </nav>
         </footer>
     </section>
+    <template class="result-template">
+        <a href="#" class="result link" target="_blank">
+            <!--<img src="images/news.jpg" alt="" class="result__image">-->
+            <img src="<%=require('./images/news.jpg')%>" alt="" class="result__image">
+            <time datetime="" class="result__date"></time>
+            <h3 class="result__title"></h3>
+            <p class="result__text"></p>
+            <p class="result__author"></p>
+            <div class="result__shadow"></div>
+        </a>
+    </template>
+    <!--<script src="./js/index.js"></script>-->
+    <!--<script src="./js/api.js"></script>-->
     <!--<script src="./js/index.js"></script>-->
     <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
 </body>
