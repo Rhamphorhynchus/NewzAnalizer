@@ -35,8 +35,6 @@ function setAnalytics(articles)
 }
 
 function imageNotFound(event) {
-    console.log('on error');
-    console.log(event);
     event.target.setAttribute("src", require('../images/news.jpg'));
     event.target.removeEventListener('error', imageNotFound);
 }
