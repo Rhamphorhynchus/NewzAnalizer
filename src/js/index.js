@@ -34,6 +34,13 @@ function setAnalytics(articles)
     return analytics;
 }
 
+function imageNotFound(event) {
+    console.log('on error');
+    console.log(event);
+    event.target.setAttribute("src", require('../images/news.jpg'));
+    event.target.removeEventListener('error', imageNotFound);
+}
+
 function SetCardsContent(response) {
     if ((response.status == "ok") && (response.totalResults > 0)) {
         //const card = cardTemplate.content.cloneNode(true); //document.importNode(cardTemplate.content, true);
@@ -42,6 +49,7 @@ function SetCardsContent(response) {
             const card = cardTemplate.content.cloneNode(true);
             card.querySelector(".result").setAttribute("href", article.url);
             if (article.urlToImage !== null) {
+                card.querySelector(".result__image").addEventListener('error', imageNotFound);
                 card.querySelector(".result__image").setAttribute("src", article.urlToImage);
             }
             card.querySelector(".result__image").setAttribute("alt", article.title);
