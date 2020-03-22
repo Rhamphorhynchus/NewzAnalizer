@@ -17,11 +17,17 @@
     align-self: stretch;
     display:flex;
     align-items:center;
+    transition: all 0.15s ease-out;
 }
 
 .header__link:first-child {
     margin: 0;
 }
+
+.header__link:hover {
+    color: #fff;
+}
+
 
 @media screen and (max-width: 480px) {
     .header__link {

@@ -2,3 +2,8 @@
     color: #fff;
     box-shadow: inset 0px -3px 0px #fff;
 }
+
+.header__link_current:hover {
+    color: #faa;
+    box-shadow: inset 0px -3px 0px #faa;
+}

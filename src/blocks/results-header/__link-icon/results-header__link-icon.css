@@ -4,4 +4,12 @@
     width: 24px;
     height: 24px;
     object-fit: contain;
+    transition: all 0.15s ease-out;
+}
+
+.results-header__link-icon:hover,
+.results-header__link-icon:focus,
+.results-header__link:hover .results-header__link-icon,
+.results-header__link:focus .results-header__link-icon {
+    filter: invert(78%) sepia(0%) saturate(765%) hue-rotate(191deg) brightness(81%) contrast(76%);
 }

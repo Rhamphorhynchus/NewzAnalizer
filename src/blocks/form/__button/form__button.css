@@ -27,6 +27,8 @@
     cursor: pointer;
     /*background-color: #ffdb4d;*/
     /*color: #000;*/
+
+    transition: all 0.15s ease-out;
 }
 
 .form__button:hover {

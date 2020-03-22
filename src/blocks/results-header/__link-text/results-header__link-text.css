@@ -10,4 +10,9 @@
     align-items: center;
     text-align: center;*/
     color: #1A1B22;
+    transition: all 0.15s ease-out;
+}
+
+.results-header__link:hover .results-header__link-text {
+    color: #999;
 }

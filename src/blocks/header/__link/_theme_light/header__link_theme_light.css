@@ -1,8 +1,17 @@
 .header__link_theme_light {
     color: #b6bcbf;
+    transition: all 0.15s ease-out;
 }
 
 .header__link_theme_light.header__link_current {
     color: #1a1b22;
     box-shadow: inset 0px -3px 0px #1a1b22;
+}
+
+.header__link_theme_light:hover {
+    color: #999;
+}
+
+.header__link_theme_light:hover.header__link_current {
+    box-shadow: inset 0px -3px 0px #b6bcbf;
 }
