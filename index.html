@@ -8,8 +8,9 @@
     <title lang="en">NewsAnalizer</title>
     <!--<link rel="stylesheet" href="./vendor/fonts.css">-->
     <!--<link rel="stylesheet" href="./pages/index.css">-->
-    <link rel="stylesheet" href="index.c64a978db0d7b6dc917d.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="index.098fc2de59a3fe58881a.css">
+    <!--<link rel="icon" href="images/favicon.png" type="image/png">-->
+    <link rel="icon" href="images/53fde9f52caddebbe2f0a9246fcdbb28.png" type="image/png">
 </head>
 <body>
     <section class="page">
@@ -30,11 +31,11 @@
                 </fieldset>
             </form>
         </section>
-        <section class="search-result in-progress">
+        <section class="search-result in-progress invisible">
             <div class="in-progress__animation"></div>
             <p class="in-progress__text">Идет поиск новостей...</p>
         </section>
-        <section class="search-result not-found">
+        <section class="search-result not-found invisible">
             <div class="not-found__image"></div>
             <h2 class="not-found__title">Ничего не найдено</h2>
             <p class="not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
@@ -121,7 +122,20 @@
             </nav>
         </footer>
     </section>
+    <template class="result-template">
+        <a href="#" class="result link" target="_blank">
+            <!--<img src="images/news.jpg" alt="" class="result__image">-->
+            <img src="images/cb7c4792c1527f8d510b6b205c5e9073.jpg" alt="" class="result__image">
+            <time datetime="" class="result__date"></time>
+            <h3 class="result__title"></h3>
+            <p class="result__text"></p>
+            <p class="result__author"></p>
+            <div class="result__shadow"></div>
+        </a>
+    </template>
     <!--<script src="./js/index.js"></script>-->
-    <script src="index.decbb167a979e1ac6c41.js"></script>
+    <!--<script src="./js/api.js"></script>-->
+    <!--<script src="./js/index.js"></script>-->
+    <script src="index.08884ff6b4001c64625a.js"></script>
 </body>
 </html>
