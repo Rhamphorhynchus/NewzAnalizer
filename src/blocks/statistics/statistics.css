@@ -9,6 +9,7 @@
 .statistics {
     margin: 0;
     padding: 40px 104px 80px;
+    background-color: #fff;
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {

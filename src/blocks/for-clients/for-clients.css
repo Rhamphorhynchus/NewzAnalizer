@@ -5,6 +5,7 @@
 .for-clients {
     margin: 0;
     padding: 80px 104px 94px;
+    background-color: #fff;
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
