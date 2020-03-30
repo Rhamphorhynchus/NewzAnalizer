@@ -11,3 +11,16 @@
     align-items: center;*/
     color: #B6BCBF;
 }
+
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .result__date {
+        padding: 16px 0 0 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result__date {
+        padding: 16px 0 0 16px;
+    }
+}

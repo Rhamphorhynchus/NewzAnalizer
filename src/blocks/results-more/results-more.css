@@ -9,7 +9,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    color: #1A1B22;
+    color: #1a1b22;
     border: none;
     text-align: center;
     cursor: pointer;
@@ -19,8 +19,9 @@
 
 .results-more:hover {
     /*outline: none;*/
-    background: #347eff;
-    color: #fff;
+    /*background: #347eff;*/
+    background: #e8e8e9;
+    color: #1a1b22;
     border: none;
 }
 

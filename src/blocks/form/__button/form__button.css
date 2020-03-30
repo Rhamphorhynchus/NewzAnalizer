@@ -38,7 +38,7 @@
 
 .form__button:focus {
     outline: none;
-    background: #2a65cc;;
+    background: #2a65cc;
 }
 
 .form__input:hover+.form__button {

@@ -9,3 +9,15 @@
     word-wrap: break-word;
     color: #1A1B22;
 }
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .result__text {
+        padding: 10px 16px 0 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result__text {
+        padding: 8px 16px 0 16px;
+    }
+}

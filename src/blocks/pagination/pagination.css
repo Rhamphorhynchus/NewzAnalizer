@@ -1,0 +1,22 @@
+@import url('__bullet/pagination__bullet.css');
+@import url('__bullet/_active/pagination__bullet_active.css');
+
+.pagination {
+    margin: 0 auto;
+    padding: 38px 0 0 0;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .pagination {
+        padding: 22px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pagination {
+        padding: 6px 0 0 0;
+    }
+}

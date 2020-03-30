@@ -1,5 +1,6 @@
 import "../pages/index.css";
-import { NewsAPI } from "./api";
+import { Card } from "./card";
+import { NewsAPI } from "./newsapi";
 console.log("index.js");
 
 const newsApi = new NewsAPI('53ed4d6d1f5c4094b07ebdaf6f4a8b5b');
@@ -13,7 +14,16 @@ const blockCard = document.querySelector('.results');
 const cardTemplate = document.querySelector('.result-template');
 const blockWait = document.querySelector('.in-progress');
 const blockNotFound = document.querySelector('.not-found');
+const buttonNext = document.querySelector('.results-more');
 
+const cardsPerAttempt = 3;
+const cardsSession = {totalCount: 0, currentPosition: 0}
+let currentCardIndex;
+let cardsResponse;
+let totalCardsCount;
+
+
+buttonNext.addEventListener('click', showNextCards);
 formSend.addEventListener('submit', sendData);
 
 function AddCard(article) {
@@ -39,6 +49,45 @@ function imageNotFound(event) {
     event.target.removeEventListener('error', imageNotFound);
 }
 
+function showNextCards() {
+    const firstCardIndex = currentCardIndex;
+    const lastCardIndex = firstCardIndex + cardsPerAttempt < totalCardsCount ? firstCardIndex + cardsPerAttempt : totalCardsCount;
+    for (let i = firstCardIndex; i < lastCardIndex; i++) {
+            const card  = new Card(null, cardTemplate);
+            cardContainer.appendChild(card.create(cardsResponse.articles[i]));
+    }
+    if (lastCardIndex == totalCardsCount) {
+        buttonNext.classList.add('invisible');
+    } else {
+        buttonNext.classList.remove('invisible');
+    }
+    currentCardIndex = lastCardIndex;
+}
+
+function SetCardsContent(response) {
+    if ((response.status == "ok") && (response.totalResults > 0)) {
+        //resetCards();
+        cardContainer.innerHTML = "";
+        currentCardIndex = 0;
+        cardsResponse = response;
+        totalCardsCount = cardsResponse.totalResults;
+        showNextCards();
+        //response.articles.forEach(article => {
+        //    const card  = new Card(null, cardTemplate);
+        //    cardContainer.appendChild(card.create(article))
+        //});
+        const analytics = setAnalytics(response.articles);
+        analytics.totalResults = response.totalResults
+        //analyticsS =  JSON.stringify(analytics);
+        sessionStorage.analytics = JSON.stringify(analytics);
+        blockCard.classList.remove('invisible');
+    } else {
+        //blockNotFound.classList.add('invisible');
+        blockNotFound.classList.remove('invisible');
+    }
+}
+
+/*
 function SetCardsContent(response) {
     if ((response.status == "ok") && (response.totalResults > 0)) {
         //const card = cardTemplate.content.cloneNode(true); //document.importNode(cardTemplate.content, true);
@@ -70,6 +119,7 @@ function SetCardsContent(response) {
         blockNotFound.classList.remove('invisible');
     }
 }
+*/
 
 
 function sendData(event)

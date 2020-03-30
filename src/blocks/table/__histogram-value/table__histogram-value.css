@@ -1,8 +1,3 @@
-.table__histogram-value-container {
-    width: calc(100% - 104px);
-    /*background: #ddd;*/
-}
-
 .table__histogram-value {
     width: 100%;
     margin: 0;
@@ -15,7 +10,7 @@
     box-sizing: border-box;
     background: #2F71E5;
 
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -23,17 +18,6 @@
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #fff;
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-
-}
-
-@media screen and (max-width: 480px) {
-  .table__histogram-value-container {
-    width: calc(100% - 80px);
-    background: #ddd;
-}
 }
 
 .table__histogram-value-0 {

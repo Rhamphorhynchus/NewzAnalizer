@@ -13,7 +13,7 @@
     justify-content: space-between;
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 960px) {
     .about {
         margin: 0;
         padding: 40px 40px 8px;

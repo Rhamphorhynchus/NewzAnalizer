@@ -6,3 +6,15 @@
     border-top-right-radius: 16px;
     overflow: hidden;
 }
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .result__image {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result__image {
+        height: 196px;
+    }
+}

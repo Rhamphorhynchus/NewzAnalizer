@@ -25,6 +25,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
     },
+    devtool: 'source-map',//'inline-source-map.js',
     module: {
         rules: [{ // тут описываются правила
             test: /\.js$/, // регулярное выражение, которое ищет все js файлы
@@ -39,7 +40,7 @@ module.exports = {
         },
         {
             test: /\.css$/, // применять это правило только к CSS-файлам
-            use: [MiniCssExtractPlugin.loader, 'css-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
         },
         {
             test: /\.(jpe?g|png|gif|svg)$/i,
@@ -84,9 +85,9 @@ module.exports = {
         new HtmlWebpackPlugin({inject: false, template: './src/about.html', filename: 'about.html'}),
         new HtmlWebpackPlugin({inject: false, template: './src/analytics.html', filename: 'analytics.html'}),
         new WebpackMd5Hash(),
-        new webpack.DefinePlugin({
+        /*new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        })
+        })*/
     ]
 };
 // module.exports — это синтаксис экспорта в Node.js

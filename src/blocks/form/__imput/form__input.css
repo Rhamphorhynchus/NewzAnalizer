@@ -23,6 +23,7 @@
     font-size: 16px;
     line-height: 22px;
     color: #1a1b22;
+    caret-color: #2f71e5;
 }
 
 .form_input::placeholder {
@@ -31,6 +32,7 @@
 
 .form__input:focus {
     outline: none;
+    background-color: #dfebff;
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {

@@ -7,6 +7,7 @@
 @import url('__histogram/table__histogram.css');
 @import url('__histogram-date/table__histogram-date.css');
 @import url('__histogram-value/table__histogram-value.css');
+@import url('__histogram-value-container/table__histogram-value-container.css');
 @import url('__histograms/table__histograms.css');
 
 .table {
