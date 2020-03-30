@@ -66,6 +66,7 @@ console.log("about.js");
 
 const api = new GithubAPI();
 
+/*
 api.commits('Rhamphorhynchus', 'NewzAnalizer', 'level-1')
 .then(response => {
     console.log(response);
@@ -75,3 +76,4 @@ api.commits('Rhamphorhynchus', 'NewzAnalizer', 'level-1')
   }).finally(() => {
     console.log('finnaly');
   });
+*/
