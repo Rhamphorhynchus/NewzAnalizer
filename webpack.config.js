@@ -16,11 +16,6 @@ module.exports = {
         about: './src/js/about.js',
         analytics: './src/js/analytics.js'
     },
-    /*entry: {
-        index: './src/js/index.js',
-        about: './src/js/about.js',
-        analytics: './src/js/analytics.js'
-      },*/
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
