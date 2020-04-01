@@ -1,6 +1,6 @@
 import '../../node_modules/swiper/css/swiper.min.css';
 import "../pages/about.css";
-import { GithubAPI } from "./githubapi";
+import { GithubAPI } from "./modules/githubapi";
 import { CommitCard } from "./commitcard";
 import Swiper from '../../node_modules/swiper/js/swiper';
 

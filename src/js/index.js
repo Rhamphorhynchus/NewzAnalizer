@@ -1,6 +1,6 @@
 import "../pages/index.css";
 import { Card } from "./card";
-import { NewsAPI } from "./newsapi";
+import { NewsAPI } from "./modules/newsapi";
 console.log("index.js");
 
 const newsApi = new NewsAPI('53ed4d6d1f5c4094b07ebdaf6f4a8b5b');
