@@ -1,5 +1,5 @@
 import "../pages/index.css";
-import { Card } from "./card";
+import { Card } from "./components/card";
 import { NewsAPI } from "./modules/newsapi";
 console.log("index.js");
 
