@@ -1,4 +1,4 @@
-import { formatDateAsLongString } from './utils/datetime';
+import { formatDateAsLongString } from '../utils/datetime';
 
 export class Card {
   constructor(api, template) {
