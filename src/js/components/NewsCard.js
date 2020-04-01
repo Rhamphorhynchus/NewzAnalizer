@@ -1,6 +1,6 @@
 import { formatDateAsLongString } from '../utils/datetime';
 
-export class Card {
+export class NewsCard {
   constructor(api, template) {
     this.api = api;
     this.cardTemplate = template;
@@ -25,7 +25,7 @@ export class Card {
   }
 
     _imageNotFound(event) {
-        event.target.setAttribute("src", require('../images/news.jpg'));
+        event.target.setAttribute("src", require('../../images/news.jpg'));
         event.target.removeEventListener('error', this._imageNotFoundHandler);
     }
 }

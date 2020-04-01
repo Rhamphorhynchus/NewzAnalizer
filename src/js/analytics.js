@@ -1,5 +1,6 @@
 import "../pages/analytics.css";
 import { formatDate, formatDateAsShortString } from './utils/datetime';
+import { Statistics } from './components/Statistics';
 
 console.log("analytics.js");
 
@@ -30,6 +31,14 @@ function setAnalytics(analytics) {
     }
 }
 
+if (sessionStorage.newzAnalyzerDataString) {
+    const newzAnalyzerData = JSON.parse(sessionStorage.newzAnalyzerDataString);
+    const statistics = new Statistics(null, newzAnalyzerData.response.articles, newzAnalyzerData.q,  newzAnalyzerData.response.totalResults, newzAnalyzerData.date);
+    statistics.render();
+}
+
+/*
 if (sessionStorage.analytics && sessionStorage.analytics.length > 0) {
     setAnalytics(JSON.parse(sessionStorage.analytics));
 }
+*/

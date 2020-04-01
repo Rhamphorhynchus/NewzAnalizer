@@ -1,7 +1,7 @@
 import '../../node_modules/swiper/css/swiper.min.css';
 import "../pages/about.css";
 import { GithubAPI } from "./modules/githubapi";
-import { CommitCard } from "./components/commitcard";
+import { CommitCard } from "./components/CommitCard";
 import Swiper from '../../node_modules/swiper/js/swiper';
 
 function SetCardsContent(response) {

@@ -27,7 +27,7 @@ export class CommitCard {
     }
   
       _imageNotFound(event) {
-          event.target.setAttribute("src", require('../images/news.jpg'));
+          event.target.setAttribute("src", require('../../images/news.jpg'));
           event.target.removeEventListener('error', this._imageNotFoundHandler);
       }
   }

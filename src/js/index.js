@@ -1,5 +1,5 @@
 import "../pages/index.css";
-import { Card } from "./components/card";
+import { NewsCard } from "./components/NewsCard";
 import { NewsAPI } from "./modules/newsapi";
 console.log("index.js");
 
@@ -30,9 +30,10 @@ function AddCard(article) {
 
 }
 
-function setAnalytics(articles)
+function setAnalytics(articles, q)
 {
     const analytics = {values:{}};
+    analytics.refersInTitle = 0;
 
     for (let i = 0; i < articles.length; i++) {
         let data = articles[i].publishedAt.slice(0, 10);
@@ -40,6 +41,10 @@ function setAnalytics(articles)
     }
 
     analytics.max = Object.values(analytics.values).reduce((value, max) => ((value > max) ? value : max ), 0);
+    analytics.refersInTitle = articles.reduce((previousValue, article) => {
+        if (article.title.indexOf(q) >= 0) previousValue += 1;
+        return previousValue;
+    }, 0);
     
     return analytics;
 }
@@ -53,7 +58,7 @@ function showNextCards() {
     const firstCardIndex = currentCardIndex;
     const lastCardIndex = firstCardIndex + cardsPerAttempt < totalCardsCount ? firstCardIndex + cardsPerAttempt : totalCardsCount;
     for (let i = firstCardIndex; i < lastCardIndex; i++) {
-            const card  = new Card(null, cardTemplate);
+            const card  = new NewsCard(null, cardTemplate);
             cardContainer.appendChild(card.create(cardsResponse.articles[i]));
     }
     if (lastCardIndex == totalCardsCount) {
@@ -64,7 +69,7 @@ function showNextCards() {
     currentCardIndex = lastCardIndex;
 }
 
-function SetCardsContent(response) {
+function SetCardsContent(response, q, date) {
     if ((response.status == "ok") && (response.totalResults > 0)) {
         //resetCards();
         cardContainer.innerHTML = "";
@@ -76,10 +81,11 @@ function SetCardsContent(response) {
         //    const card  = new Card(null, cardTemplate);
         //    cardContainer.appendChild(card.create(article))
         //});
-        const analytics = setAnalytics(response.articles);
+        const analytics = setAnalytics(response.articles, q);
         analytics.totalResults = response.totalResults
         //analyticsS =  JSON.stringify(analytics);
-        sessionStorage.analytics = JSON.stringify(analytics);
+        //sessionStorage.analytics = JSON.stringify(analytics);
+        sessionStorage.newzAnalyzerDataString = JSON.stringify({response, q, date});
         blockCard.classList.remove('invisible');
     } else {
         //blockNotFound.classList.add('invisible');
@@ -131,9 +137,10 @@ function sendData(event)
     event.preventDefault();
 
     const q = document.querySelector('.form__input').value;
-    const date = new Date()
-    date.setDate(date.getDate() - 6);
-    const from = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    const toDate = new Date();
+    const fromDate = new Date(toDate);
+    fromDate.setDate(fromDate.getDate() - 6);
+    const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
   
     newsApi.everything({
         q,
@@ -141,7 +148,7 @@ function sendData(event)
         pageSize: 100
       }).then(response => {
         console.log(response);
-        SetCardsContent(response);
+        SetCardsContent(response, q, toDate);
       }).catch(error => {
           console.log(error);
       }).finally(() => {
