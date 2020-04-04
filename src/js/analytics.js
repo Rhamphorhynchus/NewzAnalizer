@@ -1,10 +1,11 @@
 import "../pages/analytics.css";
-import { formatDate, formatDateAsShortString } from './utils/datetime';
+//import { formatDate, formatDateAsShortString } from './utils/datetime';
 import { Statistics } from './components/Statistics';
+import { DataStorage } from './modules/DataStorage';
 
 console.log("analytics.js");
 
-const totalWeekly = document.querySelector(".statistics__item-total_weekly");
+//const totalWeekly = document.querySelector(".statistics__item-total_weekly");
 
 /*
 function getDayOfWeek(date) {
@@ -13,6 +14,7 @@ function getDayOfWeek(date) {
 }
 */
 
+/*
 function setAnalytics(analytics) {
     totalWeekly.textContent = analytics.totalResults;
     const date = new Date()
@@ -30,15 +32,12 @@ function setAnalytics(analytics) {
         date.setDate(date.getDate() - 1);
     }
 }
+*/
 
-if (sessionStorage.newzAnalyzerDataString) {
-    const newzAnalyzerData = JSON.parse(sessionStorage.newzAnalyzerDataString);
+const dataStorage = new DataStorage();
+
+if (dataStorage.hasData()) {
+    const newzAnalyzerData = dataStorage.loadData();
     const statistics = new Statistics(null, newzAnalyzerData.response.articles, newzAnalyzerData.q,  newzAnalyzerData.response.totalResults, newzAnalyzerData.date);
     statistics.render();
 }
-
-/*
-if (sessionStorage.analytics && sessionStorage.analytics.length > 0) {
-    setAnalytics(JSON.parse(sessionStorage.analytics));
-}
-*/
