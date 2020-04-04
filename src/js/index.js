@@ -1,35 +1,61 @@
 import "../pages/index.css";
+import { NEWS_API_TOKEN } from "./constants/constatns"
 import { NewsCard } from "./components/NewsCard";
 import { NewsAPI } from "./modules/newsapi";
+import { DataStorage } from "./modules/DataStorage";
+import { SearchInput } from "./components/SearchInput";
+import { NewsCardList } from "./components/NewsCardList";
+
 console.log("index.js");
 
-const newsApi = new NewsAPI('53ed4d6d1f5c4094b07ebdaf6f4a8b5b');
-
-
-const buttonSend = document.querySelector('.user-info__button');
+//const inputQ = document.querySelector('.form');
 const formSend = document.querySelector('.form');
-const inputQ = document.querySelector('.form');
-const cardContainer = document.querySelector('.results-grid');
 const blockCard = document.querySelector('.results');
-const cardTemplate = document.querySelector('.result-template');
 const blockWait = document.querySelector('.in-progress');
 const blockNotFound = document.querySelector('.not-found');
+const cardContainer = document.querySelector('.results-grid');
 const buttonNext = document.querySelector('.results-more');
+const cardTemplate = document.querySelector('.result-template');
 
+const newsApi = new NewsAPI(NEWS_API_TOKEN);
+const card = new NewsCard(null, cardTemplate);
+const cardList = new NewsCardList(cardContainer, buttonNext, blockCard, card);
+const searchInput = new SearchInput(formSend, newsApi, cardList, blockWait, blockNotFound, blockCard);
+
+const dataStorage = new DataStorage();
+
+if (dataStorage.hasData()) {
+    const newzAnalyzerData = dataStorage.loadData(); JSON.parse(sessionStorage.newzAnalyzerDataString);
+    form.querySelector('.form__input').value = newzAnalyzerData.q;
+    cardList.setCardsContent(newzAnalyzerData.response, newzAnalyzerData.q, newzAnalyzerData.date)
+}
+
+
+//const buttonSend = document.querySelector('.user-info__button');
+//const formSend = document.querySelector('.form');
+
+
+
+
+
+
+/*
 const cardsPerAttempt = 3;
 const cardsSession = {totalCount: 0, currentPosition: 0}
 let currentCardIndex;
 let cardsResponse;
 let totalCardsCount;
+*/
 
 
-buttonNext.addEventListener('click', showNextCards);
-formSend.addEventListener('submit', sendData);
+//buttonNext.addEventListener('click', showNextCards);
+//formSend.addEventListener('submit', sendData);
 
-function AddCard(article) {
+//function AddCard(article) {
+//
+//}
 
-}
-
+/*
 function setAnalytics(articles, q)
 {
     const analytics = {values:{}};
@@ -48,12 +74,16 @@ function setAnalytics(articles, q)
     
     return analytics;
 }
+*/
 
+/*
 function imageNotFound(event) {
     event.target.setAttribute("src", require('../images/news.jpg'));
     event.target.removeEventListener('error', imageNotFound);
 }
+*/
 
+/*
 function showNextCards() {
     const firstCardIndex = currentCardIndex;
     const lastCardIndex = firstCardIndex + cardsPerAttempt < totalCardsCount ? firstCardIndex + cardsPerAttempt : totalCardsCount;
@@ -68,7 +98,9 @@ function showNextCards() {
     }
     currentCardIndex = lastCardIndex;
 }
+*/
 
+/*
 function SetCardsContent(response, q, date) {
     if ((response.status == "ok") && (response.totalResults > 0)) {
         //resetCards();
@@ -92,6 +124,7 @@ function SetCardsContent(response, q, date) {
         blockNotFound.classList.remove('invisible');
     }
 }
+*/
 
 /*
 function SetCardsContent(response) {
@@ -127,7 +160,7 @@ function SetCardsContent(response) {
 }
 */
 
-
+/*
 function sendData(event)
 {
     blockWait.classList.remove('invisible');
@@ -155,3 +188,4 @@ function sendData(event)
         blockWait.classList.add('invisible');
       });
 }
+*/
