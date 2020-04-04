@@ -10,24 +10,9 @@ export class NewsCardList {
         this._totalCardsCount = 0;
         this._buttonNext = buttonNext;
         buttonNext.addEventListener('click', this._renderNextCards.bind(this));
-        //this._cardsResponse;
-        //this._totalCardsCount;
+
     }
   
-    addCard(name, link, id, likes, likedByMe, isMine) {
-        this.container.appendChild(this.card.create(name, link, id, likes, likedByMe, isMine));
-    }
-        
-    addCardByLink(name, link) {
-        this.addCard(name, link);
-    }
-    
-    render() {
-        for (const element of this.cards) {
-            this.addCard(element.name, element.link, element._id, element.likes.length, this.card.isCardLikedByMe(element, this.user.id), element.owner._id === this.user.id);
-        }
-    }
-
     setCardsContent(response, q, date) {
         this._cardContainer.innerHTML = "";
         if ((response.status == "ok") && (response.totalResults > 0)) {
