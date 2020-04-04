@@ -45,7 +45,8 @@ export class Statistics {
             document.querySelector(`.table__histogram-date-${7 - days}`).textContent = `${formatDateAsShortString(date)}`;
             if (this._analytics.values[dateIndex] !== undefined) {
                 document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = this._analytics.values[dateIndex];
-                document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-${Math.floor((this._analytics.values[dateIndex] / this._analytics.max) * 100)}`)
+                //document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-${Math.floor((this._analytics.values[dateIndex] / this._analytics.max) * 100)}`)
+                document.querySelector(`.table__histogram-value-date-${7 - days}`).setAttribute("style", `width: ${Math.floor((this._analytics.values[dateIndex] / this._analytics.max) * 100)}%;`);
             } else {
                 document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = 0;
                 document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-0`)
