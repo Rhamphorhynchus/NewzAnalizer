@@ -4,11 +4,12 @@ import {    DAYS_INTERVAL, MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_
 import { DataStorage } from '../modules/DataStorage';
 
 export class SearchInput {
-    constructor(form, input, api, cardList, blockWait, blockNotFound, blockCard) {
+    constructor(form, input, api, dataStorage, cardList, blockWait, blockNotFound, blockCard) {
         this._form = form;
         this._input = input;
         this._api = api;
-        this._dataStorage = new DataStorage(); 
+        //this._dataStorage = new DataStorage(); 
+        this._dataStorage = dataStorage; 
         this._cardList = cardList;
         this._blockWait = blockWait;
         //this._blockError = blockError;
