@@ -34,7 +34,7 @@ const card  = new CommitCard(null, cardTemplate);
 const cardList = new CommitCardList(cardContainer, card);
 const api = new GithubAPI();
 
-api.commits(GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH)
+api.commits(GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH, {page: 1, per_page: 20})
 .then(response => {
     console.log(response);
     cardList.renderCards(response);
