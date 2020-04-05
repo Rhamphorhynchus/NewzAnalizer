@@ -4,3 +4,5 @@ export const NEWS_API_TOKEN = "53ed4d6d1f5c4094b07ebdaf6f4a8b5b";
 export const GITHUB_USER = "Rhamphorhynchus";
 export const GITHUB_REPOSITORY = "NewzAnalizer";
 export const GITHUB_BRANCH = "level-2";
+export const ERROR_TEXT_REQUIRED = "Нужно ввести ключевое слово";
+export const ERROR_TEXT_WRONG_LENGTH = "Ключевое слово должно быть длинной от 3 до 20 символов";

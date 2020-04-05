@@ -1,4 +1,4 @@
-import { MAX_NEWS_PER_QUERRY } from './../constants/constatns';
+import { MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_WRONG_LENGTH } from './../constants/constatns';
 import { DataStorage } from '../modules/DataStorage';
 
 export class SearchInput {
@@ -18,6 +18,7 @@ export class SearchInput {
         this._form.addEventListener('submit', this._getNews.bind(this));
         this._input.addEventListener('input', this._checkValidity.bind(this));
         this._input.addEventListener('focus', this._checkValidity.bind(this));
+        this._form.addEventListener('focus', this._checkValidity.bind(this), ture);
         //this._input.addEventListener('blur', (event) => {this._input.setCustomValidity("");});
     }
 
@@ -33,12 +34,12 @@ export class SearchInput {
         const input = document.querySelector('.form__input');
         //if (!input.checkValidity()) {
         if (input.validity.valueMissing) {
-            input.setCustomValidity("Это поле обязательно");
+            input.setCustomValidity(ERROR_TEXT_REQUIRED);
             input.reportValidity();
             this._disableSendButton();
             return false;
         } else if (input.validity.tooShort || input.validity.tooLong) {
-            input.setCustomValidity(`Поле должно быть длинной от 3 до 20 символов.`);
+            input.setCustomValidity(ERROR_TEXT_WRONG_LENGTH);
             input.reportValidity();
             this._disableSendButton();
             return false;
