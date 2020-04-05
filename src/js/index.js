@@ -174,7 +174,7 @@ function sendData(event)
     const q = document.querySelector('.form__input').value;
     const toDate = new Date();
     const fromDate = new Date(toDate);
-    fromDate.setDate(fromDate.getDate() - 6);
+    fromDate.setDate(fromDate.getDate() - DAYS_INTERVAL + 1);
     const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
   
     newsApi.everything({

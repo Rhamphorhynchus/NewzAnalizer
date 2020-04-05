@@ -1,4 +1,4 @@
-import {    MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_WRONG_LENGTH,
+import {    DAYS_INTERVAL, MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_WRONG_LENGTH,
             BLOCK_NOT_FOUND_TITLE, BLOCK_NOT_FOUND_TEXT, BLOCK_NOT_FOUND_ERROR_TITLE,
             BLOCK_NOT_FOUND_ERROR_TEXT  } from './../constants/constatns';
 import { DataStorage } from '../modules/DataStorage';
@@ -70,7 +70,7 @@ export class SearchInput {
             const q = document.querySelector('.form__input').value;
             const toDate = new Date();
             const fromDate = new Date(toDate);
-            fromDate.setDate(fromDate.getDate() - 6);
+            fromDate.setDate(fromDate.getDate() - DAYS_INTERVAL + 1);
             const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
     
             this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})

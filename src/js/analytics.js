@@ -18,16 +18,16 @@ function getDayOfWeek(date) {
 function setAnalytics(analytics) {
     totalWeekly.textContent = analytics.totalResults;
     const date = new Date()
-    for (let days = 1; days <= 7; days++) {
+    for (let days = 1; days <= DAYS_INTERVAL; days++) {
         const dateIndex = formatDate(date);
-        //document.querySelector(`.table__histogram-date-${7 - days}`).textContent = `${date.getDate()}, ${getDayOfWeek(date)}`;
-        document.querySelector(`.table__histogram-date-${7 - days}`).textContent = `${formatDateAsShortString(date)}`;
+        //document.querySelector(`.table__histogram-date-${DAYS_INTERVAL - days}`).textContent = `${date.getDate()}, ${getDayOfWeek(date)}`;
+        document.querySelector(`.table__histogram-date-${DAYS_INTERVAL - days}`).textContent = `${formatDateAsShortString(date)}`;
         if (analytics.values[dateIndex] !== undefined) {
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = analytics.values[dateIndex];
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-${Math.floor((analytics.values[dateIndex] / analytics.max) * 100)}`)
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).textContent = analytics.values[dateIndex];
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).classList.add(`table__histogram-value-${Math.floor((analytics.values[dateIndex] / analytics.max) * 100)}`)
         } else {
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = 0;
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-0`)
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).textContent = 0;
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).classList.add(`table__histogram-value-0`)
         }
         date.setDate(date.getDate() - 1);
     }
