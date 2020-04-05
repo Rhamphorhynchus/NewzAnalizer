@@ -4,17 +4,17 @@ export class DataStorage {
     }
 
     saveData(response, q, date) {
-        sessionStorage.newzAnalyzerDataString = JSON.stringify({response, q, date});
+        localStorage.newzAnalyzerDataString = JSON.stringify({response, q, date});
     }
 
     loadData() {
-        const data = JSON.parse(sessionStorage.newzAnalyzerDataString);
+        const data = JSON.parse(localStorage.newzAnalyzerDataString);
         data.date = new Date(data.date);
         return data;
         //return JSON.parse(sessionStorage.newzAnalyzerDataString);
     }
 
     hasData() {
-        return sessionStorage.newzAnalyzerDataString !== null || sessionStorage.newzAnalyzerDataString !== undefined || sessionStorage.newzAnalyzerDataString !== "";
+        return localStorage.newzAnalyzerDataString !== null || localStorage.newzAnalyzerDataString !== undefined || localStorage.newzAnalyzerDataString !== "";
     }
 }
