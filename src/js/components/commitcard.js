@@ -14,8 +14,8 @@ export class CommitCard {
       card.querySelector(".commit__date").textContent = formatDateAsLongString(new Date(commit.commit.author.date));
 
       if (commit.author !== null && commit.author.avatar_url !== null) {
-          //this._imageNotFoundHandler = this._imageNotFound.bind(this);
-          //card.querySelector(".commit__avatar").addEventListener('error', this._imageNotFoundHandler);
+          this._imageNotFoundHandler = this._imageNotFound.bind(this);
+          card.querySelector(".commit__avatar").addEventListener('error', this._imageNotFoundHandler);
           card.querySelector(".commit__avatar").setAttribute("src", commit.author.avatar_url);
           card.querySelector(".commit__avatar").setAttribute("style", "display: none;");
           this._imageLoadedHandler = this._imageLoaded.bind(this);
@@ -30,11 +30,11 @@ export class CommitCard {
     }
   
       _imageNotFound(event) {
-          event.target.setAttribute("src", require('../../images/news.jpg'));
+          event.target.setAttribute("src", require('../../images/github_gray.svg'));
           event.target.removeEventListener('error', this._imageNotFoundHandler);
       }
 
       _imageLoaded(event) {
-        event.target.removeAttribute("style", "display: none;");
+          event.target.removeAttribute("style", "display: none;");
       }
   }
