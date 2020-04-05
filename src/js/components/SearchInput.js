@@ -4,13 +4,51 @@ import { DataStorage } from '../modules/DataStorage';
 export class SearchInput {
     constructor(form, api, cardList, blockWait, blockNotFound, blockCard) {
         this._form = form;
+        //this._input = input;
         this._api = api;
         this._dataStorage = new DataStorage(); 
         this._cardList = cardList;
         this._blockWait = blockWait;
         this._blockNotFound = blockNotFound;
         this._blockCard = blockCard;
+        this._setHandlers();
+    }
+
+    _setHandlers() {
         this._form.addEventListener('submit', this._getNews.bind(this));
+        this._form.addEventListener('input', this._checkValidity.bind(this));
+    }
+
+    _disableSendButton() {
+        document.querySelector('.form__button').setAttribute('disabled', '');
+    }
+
+    _enableSendButton() {
+        document.querySelector('.form__button').removeAttribute('disabled');
+    }
+
+    _checkValidity() {
+        const input = document.querySelector('.form__input');
+        //if (!input.checkValidity()) {
+        if (input.validity.valueMissing) {
+            input.setCustomValidity("Это поле обязательно");
+            input.reportValidity();
+            this._disableSendButton();
+        } else if (input.validity.tooShort || input.validity.tooLong) {
+            input.setCustomValidity(`Поле должно быть длинной от 3 до 20 символов.`);
+            input.reportValidity();
+            this._disableSendButton();
+        } else {
+            input.setCustomValidity("");
+            this._enableSendButton();
+        }
+        /*
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("I expect an e-mail, darling!");
+          } else {
+            email.setCustomValidity("");
+        }
+        */
     }
 
     _getNews(event) {
@@ -35,6 +73,7 @@ export class SearchInput {
             }
         }).catch(error => {
             console.log(error);
+            //alert(error);
         }).finally(() => {
             this._blockWait.classList.add('invisible');
         });

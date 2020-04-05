@@ -8,15 +8,14 @@ export class NewsAPI {
         };
     }
 
-    __createUrl (path, params) {
+    _createUrl (path, params) {
         const query = Object.keys(params).map((key) => {return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])}).join('&');
         const baseURL = `${this.host}${path}`;
         return query ? `${baseURL}?${query}` : baseURL;
     }
 
-    __apiCall(path, params) {
-        //return fetch(__createUrl(path, params), {
-            return fetch(this.__createUrl(path, params), {
+    _apiCall(path, params) {
+            return fetch(this._createUrl(path, params), {
             method: 'GET',
             headers: this.headers,
         })
@@ -28,11 +27,14 @@ export class NewsAPI {
         })
         .then((result) => {
             return Promise.resolve(result);
+        })
+        .catch((error) => {
+            return Promise.reject(`Ошибка ${error}`);
         });
     }
 
     everything (params) {
-        return this.__apiCall('/v2/everything', params);
+        return this._apiCall('/v2/everything', params);
     }
 
 }
