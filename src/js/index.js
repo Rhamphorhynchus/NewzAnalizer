@@ -10,6 +10,7 @@ console.log("index.js");
 
 //const inputQ = document.querySelector('.form');
 const formSend = document.querySelector('.form');
+const input = formSend.querySelector('.form__input');
 const blockCard = document.querySelector('.results');
 const blockWait = document.querySelector('.in-progress');
 const blockNotFound = document.querySelector('.not-found');
@@ -20,7 +21,7 @@ const cardTemplate = document.querySelector('.result-template');
 const newsApi = new NewsAPI(NEWS_API_TOKEN);
 const card = new NewsCard(null, cardTemplate);
 const cardList = new NewsCardList(cardContainer, buttonNext, blockCard, card);
-const searchInput = new SearchInput(formSend, newsApi, cardList, blockWait, blockNotFound, blockCard);
+const searchInput = new SearchInput(formSend, input, newsApi, cardList, blockWait, blockNotFound, blockCard);
 
 const dataStorage = new DataStorage();
 

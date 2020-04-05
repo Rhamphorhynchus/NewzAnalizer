@@ -2,9 +2,9 @@ import { MAX_NEWS_PER_QUERRY } from './../constants/constatns';
 import { DataStorage } from '../modules/DataStorage';
 
 export class SearchInput {
-    constructor(form, api, cardList, blockWait, blockNotFound, blockCard) {
+    constructor(form, input, api, cardList, blockWait, blockNotFound, blockCard) {
         this._form = form;
-        //this._input = input;
+        this._input = input;
         this._api = api;
         this._dataStorage = new DataStorage(); 
         this._cardList = cardList;
@@ -16,7 +16,9 @@ export class SearchInput {
 
     _setHandlers() {
         this._form.addEventListener('submit', this._getNews.bind(this));
-        this._form.addEventListener('input', this._checkValidity.bind(this));
+        this._input.addEventListener('input', this._checkValidity.bind(this));
+        this._input.addEventListener('focus', this._checkValidity.bind(this));
+        this._input.addEventListener('blur', (event) => {this._input.setCustomValidity("");});
     }
 
     _disableSendButton() {
@@ -34,48 +36,46 @@ export class SearchInput {
             input.setCustomValidity("Это поле обязательно");
             input.reportValidity();
             this._disableSendButton();
+            return false;
         } else if (input.validity.tooShort || input.validity.tooLong) {
             input.setCustomValidity(`Поле должно быть длинной от 3 до 20 символов.`);
             input.reportValidity();
             this._disableSendButton();
+            return false;
         } else {
             input.setCustomValidity("");
             this._enableSendButton();
+            return true;
         }
-        /*
-        if (email.validity.typeMismatch) {
-            email.setCustomValidity("I expect an e-mail, darling!");
-          } else {
-            email.setCustomValidity("");
-        }
-        */
     }
 
     _getNews(event) {
-        this._blockWait.classList.remove('invisible');
-        this._blockNotFound.classList.add('invisible');
-        this._blockCard.classList.add('invisible');
-        event.preventDefault();
-        const q = document.querySelector('.form__input').value;
-        const toDate = new Date();
-        const fromDate = new Date(toDate);
-        fromDate.setDate(fromDate.getDate() - 6);
-        const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
-  
-        this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY})
-        .then(response => {
-            console.log(response);
-            if ((response.status == "ok") && (response.totalResults > 0)) {
-                this._cardList.setCardsContent(response, q, toDate);
-                this._dataStorage.saveData(response, q, toDate);
-            } else {
-                this._blockNotFound.classList.remove('invisible');
-            }
-        }).catch(error => {
-            console.log(error);
-            //alert(error);
-        }).finally(() => {
-            this._blockWait.classList.add('invisible');
-        });
+        if (this._checkValidity()) {
+            this._blockWait.classList.remove('invisible');
+            this._blockNotFound.classList.add('invisible');
+            this._blockCard.classList.add('invisible');
+            event.preventDefault();
+            const q = document.querySelector('.form__input').value;
+            const toDate = new Date();
+            const fromDate = new Date(toDate);
+            fromDate.setDate(fromDate.getDate() - 6);
+            const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
+    
+            this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY})
+            .then(response => {
+                console.log(response);
+                if ((response.status == "ok") && (response.totalResults > 0)) {
+                    this._cardList.setCardsContent(response, q, toDate);
+                    this._dataStorage.saveData(response, q, toDate);
+                } else {
+                    this._blockNotFound.classList.remove('invisible');
+                }
+            }).catch(error => {
+                console.log(error);
+                //alert(error);
+            }).finally(() => {
+                this._blockWait.classList.add('invisible');
+            });
+        }
     }
 }
