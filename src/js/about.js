@@ -3,6 +3,7 @@ import "../pages/about.css";
 import { GithubAPI } from "./modules/githubapi";
 import { CommitCard } from "./components/CommitCard";
 import { CommitCardList } from "./components/CommitCardList";
+import { GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH } from "./constants/constatns";
 import Swiper from '../../node_modules/swiper/js/swiper';
 
 console.log("about.js");
@@ -33,7 +34,7 @@ const card  = new CommitCard(null, cardTemplate);
 const cardList = new CommitCardList(cardContainer, card);
 const api = new GithubAPI();
 
-api.commits('Rhamphorhynchus', 'NewzAnalizer', 'level-1')
+api.commits(GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH)
 .then(response => {
     console.log(response);
     cardList.renderCards(response);
