@@ -18,7 +18,7 @@ export class SearchInput {
         this._form.addEventListener('submit', this._getNews.bind(this));
         this._input.addEventListener('input', this._checkValidity.bind(this));
         this._input.addEventListener('focus', this._checkValidity.bind(this));
-        this._form.addEventListener('focus', this._checkValidity.bind(this), ture);
+        this._form.addEventListener('focus', this._checkValidity.bind(this), true);
         //this._input.addEventListener('blur', (event) => {this._input.setCustomValidity("");});
     }
 
@@ -62,7 +62,7 @@ export class SearchInput {
             fromDate.setDate(fromDate.getDate() - 6);
             const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
     
-            this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY})
+            this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})
             .then(response => {
                 console.log(response);
                 if ((response.status == "ok") && (response.totalResults > 0)) {
