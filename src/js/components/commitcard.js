@@ -17,6 +17,9 @@ export class CommitCard {
           //this._imageNotFoundHandler = this._imageNotFound.bind(this);
           //card.querySelector(".commit__avatar").addEventListener('error', this._imageNotFoundHandler);
           card.querySelector(".commit__avatar").setAttribute("src", commit.author.avatar_url);
+          card.querySelector(".commit__avatar").setAttribute("style", "display: none;");
+          this._imageLoadedHandler = this._imageLoaded.bind(this);
+          card.querySelector(".commit__avatar").addEventListener("load", this._imageLoadedHandler);
       }
       card.querySelector(".commit__avatar").setAttribute("alt", commit.commit.author.name);
       card.querySelector(".commit__author-name").textContent = commit.commit.author.name;
@@ -29,5 +32,9 @@ export class CommitCard {
       _imageNotFound(event) {
           event.target.setAttribute("src", require('../../images/news.jpg'));
           event.target.removeEventListener('error', this._imageNotFoundHandler);
+      }
+
+      _imageLoaded(event) {
+        event.target.removeAttribute("style", "display: none;");
       }
   }
