@@ -8,3 +8,7 @@ export const ERROR_TEXT_REQUIRED = "Нужно ввести ключевое с�
 export const ERROR_TEXT_WRONG_LENGTH = "Ключевое слово должно быть длинной от 3 до 20 символов";
 export const NETWORK_ERROR_MESSAGE = "Сеть недоступна или сервер не отвечает. Повторите попытку позже. Дополнительная информация: ";
 export const UNKNOWN_ERROR_MESSAGE = "This shouldn't happen, and if it does then it's our fault, not yours. Try the request again shortly";
+export const BLOCK_NOT_FOUND_TITLE = "Ничего не найдено";
+export const BLOCK_NOT_FOUND_TEXT= "К сожалению по вашему запросу ничего не найдено.";
+export const BLOCK_NOT_FOUND_ERROR_TITLE = "Во время запроса произошла ошибка";
+export const BLOCK_NOT_FOUND_ERROR_TEXT = "Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.";

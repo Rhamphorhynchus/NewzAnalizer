@@ -1,4 +1,6 @@
-import { MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_WRONG_LENGTH } from './../constants/constatns';
+import {    MAX_NEWS_PER_QUERRY, ERROR_TEXT_REQUIRED, ERROR_TEXT_WRONG_LENGTH,
+            BLOCK_NOT_FOUND_TITLE, BLOCK_NOT_FOUND_TEXT, BLOCK_NOT_FOUND_ERROR_TITLE,
+            BLOCK_NOT_FOUND_ERROR_TEXT  } from './../constants/constatns';
 import { DataStorage } from '../modules/DataStorage';
 
 export class SearchInput {
@@ -9,6 +11,7 @@ export class SearchInput {
         this._dataStorage = new DataStorage(); 
         this._cardList = cardList;
         this._blockWait = blockWait;
+        //this._blockError = blockError;
         this._blockNotFound = blockNotFound;
         this._blockCard = blockCard;
         this._setHandlers();
@@ -50,6 +53,14 @@ export class SearchInput {
         }
     }
 
+    _showBlockNotFound(title, text) {
+        this._blockNotFound.querySelector('.not-found__title').textContent = title;
+        this._blockNotFound.querySelector('.not-found__text').textContent = text;
+        this._blockNotFound.classList.remove('invisible');
+    }
+
+    
+
     _getNews(event) {
         if (this._checkValidity()) {
             this._blockWait.classList.remove('invisible');
@@ -62,18 +73,19 @@ export class SearchInput {
             fromDate.setDate(fromDate.getDate() - 6);
             const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
     
-            this._api.everything({/*q*,*/ from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})
+            this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})
             .then(response => {
                 console.log(response);
                 if ((response.status == "ok") && (response.totalResults > 0)) {
                     this._cardList.setCardsContent(response, q, toDate);
                     this._dataStorage.saveData(response, q, toDate);
                 } else {
-                    this._blockNotFound.classList.remove('invisible');
+                    this._showBlockNotFound(BLOCK_NOT_FOUND_TITLE, BLOCK_NOT_FOUND_TEXT);
                 }
             }).catch(error => {
                 console.log(error);
-                alert(error);
+                this._showBlockNotFound(BLOCK_NOT_FOUND_ERROR_TITLE, BLOCK_NOT_FOUND_ERROR_TEXT);
+                //alert(error);
             }).finally(() => {
                 this._blockWait.classList.add('invisible');
             });

@@ -14,6 +14,7 @@ const input = formSend.querySelector('.form__input');
 const blockCard = document.querySelector('.results');
 const blockWait = document.querySelector('.in-progress');
 const blockNotFound = document.querySelector('.not-found');
+//const blockError = document.querySelector('.not-found_theme_error');
 const cardContainer = document.querySelector('.results-grid');
 const buttonNext = document.querySelector('.results-more');
 const cardTemplate = document.querySelector('.result-template');
