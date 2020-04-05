@@ -21,7 +21,7 @@ const cardTemplate = document.querySelector('.result-template');
 
 const dataStorage = new DataStorage();
 const newsApi = new NewsAPI(NEWS_API_TOKEN);
-const card = new NewsCard(null, cardTemplate);
+const card = new NewsCard(cardTemplate);
 const cardList = new NewsCardList(cardContainer, buttonNext, blockCard, card);
 const searchInput = new SearchInput(formSend, input, newsApi, dataStorage, cardList, blockWait, blockNotFound, blockCard);
 

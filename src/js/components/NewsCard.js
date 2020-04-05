@@ -1,8 +1,7 @@
 import { formatDateAsLongString } from '../utils/datetime';
 
 export class NewsCard {
-  constructor(api, template) {
-    this.api = api;
+  constructor(template) {
     this.cardTemplate = template;
   }
 
