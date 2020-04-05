@@ -6,3 +6,5 @@ export const GITHUB_REPOSITORY = "NewzAnalizer";
 export const GITHUB_BRANCH = "level-2";
 export const ERROR_TEXT_REQUIRED = "Нужно ввести ключевое слово";
 export const ERROR_TEXT_WRONG_LENGTH = "Ключевое слово должно быть длинной от 3 до 20 символов";
+export const NETWORK_ERROR_MESSAGE = "Сеть недоступна или сервер не отвечает. Повторите попытку позже. Дополнительная информация: ";
+export const UNKNOWN_ERROR_MESSAGE = "This shouldn't happen, and if it does then it's our fault, not yours. Try the request again shortly";

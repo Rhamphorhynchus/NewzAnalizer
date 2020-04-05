@@ -25,13 +25,11 @@ const searchInput = new SearchInput(formSend, input, newsApi, cardList, blockWai
 
 const dataStorage = new DataStorage();
 
-/*
 if (dataStorage.hasData()) {
     const newzAnalyzerData = dataStorage.loadData(); JSON.parse(sessionStorage.newzAnalyzerDataString);
     form.querySelector('.form__input').value = newzAnalyzerData.q;
     cardList.setCardsContent(newzAnalyzerData.response, newzAnalyzerData.q, newzAnalyzerData.date)
 }
-*/
 
 
 //const buttonSend = document.querySelector('.user-info__button');

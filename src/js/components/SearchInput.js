@@ -62,7 +62,7 @@ export class SearchInput {
             fromDate.setDate(fromDate.getDate() - 6);
             const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
     
-            this._api.everything({q, from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})
+            this._api.everything({/*q*,*/ from, pageSize: MAX_NEWS_PER_QUERRY, language: 'ru'})
             .then(response => {
                 console.log(response);
                 if ((response.status == "ok") && (response.totalResults > 0)) {
@@ -73,7 +73,7 @@ export class SearchInput {
                 }
             }).catch(error => {
                 console.log(error);
-                //alert(error);
+                alert(error);
             }).finally(() => {
                 this._blockWait.classList.add('invisible');
             });
