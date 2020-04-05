@@ -18,7 +18,7 @@ export class SearchInput {
         this._form.addEventListener('submit', this._getNews.bind(this));
         this._input.addEventListener('input', this._checkValidity.bind(this));
         this._input.addEventListener('focus', this._checkValidity.bind(this));
-        this._input.addEventListener('blur', (event) => {this._input.setCustomValidity("");});
+        //this._input.addEventListener('blur', (event) => {this._input.setCustomValidity("");});
     }
 
     _disableSendButton() {
