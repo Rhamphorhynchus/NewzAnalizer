@@ -21,8 +21,9 @@ export class Statistics {
     }
     
     _collectRefers() {
+        const Q = this._q.toUpperCase();
         return this._articles.reduce((previousValue, article) => {
-            if (article.title.indexOf(this._q) >= 0) previousValue += 1;
+            if (article.title.toUpperCase().indexOf(Q) >= 0) previousValue += 1;
             return previousValue;
         }, 0);
     }
