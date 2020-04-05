@@ -1,12 +1,12 @@
 import '../../node_modules/swiper/css/swiper.min.css';
-import "../pages/about.css";
-import { GithubAPI } from "./modules/githubapi";
-import { CommitCard } from "./components/CommitCard";
-import { CommitCardList } from "./components/CommitCardList";
-import { GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH } from "./constants/constatns";
+import '../pages/about.css';
+import { GithubAPI } from './modules/githubapi';
+import { CommitCard } from './components/CommitCard';
+import { CommitCardList } from './components/CommitCardList';
+import { GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH } from './constants/constatns';
 import Swiper from '../../node_modules/swiper/js/swiper';
 
-console.log("about.js");
+console.log('about.js');
 
 const cardContainer = document.querySelector('.swiper-wrapper');
 const cardTemplate = document.querySelector('.commit__template');
@@ -38,6 +38,7 @@ api.commits(GITHUB_USER, GITHUB_REPOSITORY, GITHUB_BRANCH, {page: 1, per_page: 2
 .then(response => {
     console.log(response);
     cardList.renderCards(response);
+    document.querySelector('.results_commits').classList.remove('invisible');
     mySwiper.update();
   }).catch(error => {
     console.log(error);
