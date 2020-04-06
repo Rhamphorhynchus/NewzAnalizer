@@ -1,0 +1,16 @@
+.results_commits {
+    padding: 80px 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .results_commits {
+        padding: 40px 0;;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .results_commits {
+        padding: 32px 0;
+    }
+}

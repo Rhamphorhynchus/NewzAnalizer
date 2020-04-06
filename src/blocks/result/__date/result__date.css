@@ -1,0 +1,26 @@
+.result__date {
+    margin: 0;
+    /*margin: 20px 0 0 24px;*/
+    padding: 20px 0 0 24px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    /*display: flex;
+    align-items: center;*/
+    color: #B6BCBF;
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .result__date {
+        padding: 16px 0 0 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result__date {
+        padding: 16px 0 0 16px;
+    }
+}

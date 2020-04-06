@@ -1,0 +1,24 @@
+.table__histogram-date {
+    margin: 0;
+    padding: 0;
+    width: 104px;
+    height: 24px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /*border: 1px solid brown;*/
+    /*background: #aaa;*/
+    
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 80px;
+    color: #1A1B22;
+}
+
+@media screen and (max-width: 480px) {
+    .table__histogram-date {
+        width: 80px;
+    }
+}

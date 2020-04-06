@@ -1,0 +1,15 @@
+.table__header {
+    margin: 0;
+    padding: 48px 0 24px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*border: 1px solid green;*/
+    border-bottom: 1px solid #1a1b22;;
+}
+
+@media screen and (max-width: 480px) {
+    .table__header {
+        padding: 16px 0 20px;
+    }
+}

@@ -1,0 +1,15 @@
+.results-header {
+    padding: 0 104px;
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .results-header {
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .results-header {
+        padding: 0 16px;
+    }
+}

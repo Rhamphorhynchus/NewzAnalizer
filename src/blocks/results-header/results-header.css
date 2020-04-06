@@ -1,0 +1,23 @@
+@import url('__link/results-header__link.css');
+@import url('__title/results-header__title.css');
+@import url('__link-text/results-header__link-text.css');
+@import url('__link-icon/results-header__link-icon.css');
+@import url('__link/_link_theme/results-header__link_theme_about.css');
+
+
+.results-header {
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    /*border: 1px solid yellow;*/
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 640px) {
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

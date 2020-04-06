@@ -1,0 +1,46 @@
+@import url('__image/result__image.css');
+@import url('__date/result__date.css');
+@import url('__title/result__title.css');
+@import url('__text/result__text.css');
+@import url('__author/result__author.css');
+@import url('__shadow/result__shadow.css');
+
+.result {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    min-height: 576px;
+    border-radius: 16px;
+    background-color: #fff;
+    /*overflow: hidden;*/
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: column;
+    transition: all 0.15s ease-in-out;
+}
+
+.result:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 14px rgba(14,21,47,.1), 0 2px 36px rgba(14,21,47,.08);
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .result {
+        min-height: 420px;
+    }
+
+    .result:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 7px rgba(14,21,47,.1), 0 1px 18px rgba(14,21,47,.08);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result {
+        min-height: 446px;
+    }
+    .result:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 7px rgba(14,21,47,.1), 0 1px 18px rgba(14,21,47,.08);
+    }
+}

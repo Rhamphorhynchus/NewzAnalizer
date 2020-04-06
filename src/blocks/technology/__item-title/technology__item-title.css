@@ -1,0 +1,18 @@
+.technology__item-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #1A1B22;
+    /*border: 1px solid green;*/
+    transition: all 0.15s ease-out;
+}
+
+.technology__item-link:hover .technology__item-title  {
+    color: #b6bcbf;
+}

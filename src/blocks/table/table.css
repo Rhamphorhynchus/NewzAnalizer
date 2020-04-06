@@ -1,0 +1,30 @@
+@import url('__header/table__header.css');
+/*@import url('__header-date/table__header-date.css');*/
+@import url('__header-title/table__header-title.css');
+@import url('__header-title/_date/table__header-title_date.css');
+@import url('__header-scale/table__header-scale.css');
+@import url('__header-scale-value/table__header-scale-value.css');
+@import url('__histogram/table__histogram.css');
+@import url('__histogram-date/table__histogram-date.css');
+@import url('__histogram-value/table__histogram-value.css');
+@import url('__histogram-value-container/table__histogram-value-container.css');
+@import url('__histograms/table__histograms.css');
+
+.table {
+    margin: 0;
+    padding: 80px 104px;
+    background-color: #f5f6f7;
+    /*border: 1px solid red;*/
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .table  {
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .table  {
+        padding: 24px 16px 38px;
+    }
+}

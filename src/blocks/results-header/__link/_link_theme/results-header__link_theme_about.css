@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+    .results-header__link_theme_about {
+        display: none;
+    }
+}

@@ -1,0 +1,37 @@
+.header__link {
+    margin: 0 0 0 34px;
+    /*padding: 0 0 0 34px;*/
+    /*padding-left: 34px;/*
+    align-self: stretch;
+    /*padding: 1em;*/
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /*height: 32px;*/
+    color: #b6bcbf;
+    /*border: 1px solid red;*/
+    /*box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.9);*/
+    align-self: stretch;
+    display:flex;
+    align-items:center;
+    transition: all 0.15s ease-out;
+}
+
+.header__link:first-child {
+    margin: 0;
+}
+
+.header__link:hover {
+    color: #fff;
+}
+
+
+@media screen and (max-width: 480px) {
+    .header__link {
+        margin: 0 0 0 11px;
+        font-size: 16px;
+    }
+}

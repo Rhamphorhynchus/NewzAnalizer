@@ -1,0 +1,12 @@
+.for-client__content {
+    margin: 0;
+    padding: 24px 0 0 0;
+    width: 100%;
+    max-width: 815px;
+}
+
+@media screen and (max-width: 768px) {
+    .for-client__content {
+        padding: 16px 0 0 0;
+    }
+}

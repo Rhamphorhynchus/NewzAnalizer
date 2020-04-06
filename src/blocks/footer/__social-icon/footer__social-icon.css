@@ -1,0 +1,12 @@
+.footer__social-icon {
+    /*display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: initial;
+    object-position: center;*/
+    transition: all 0.15s ease-out;
+}
+
+.footer__social-link:hover .footer__social-icon {
+    filter: invert(78%) sepia(0%) saturate(765%) hue-rotate(191deg) brightness(81%) contrast(76%);
+}

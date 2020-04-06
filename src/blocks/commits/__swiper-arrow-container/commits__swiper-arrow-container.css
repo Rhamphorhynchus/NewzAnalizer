@@ -1,0 +1,12 @@
+.commits__swiper-arrow-container {
+    margin-top: 64px;
+    position: absolute;
+    width: 98px;
+    height: 288px;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.table__header-title_date {
+    width: 104px;
+}
+
+@media screen and (max-width: 480px) {
+    .table__header-title_date {
+        width: 80px;
+    }
+}

@@ -1,0 +1,11 @@
+.table__histogram-value-container {
+    width: calc(100% - 104px);
+    /*background: #ddd;*/
+}
+
+@media screen and (max-width: 480px) {
+    .table__histogram-value-container {
+      width: calc(100% - 80px);
+      background: #ddd;
+    }
+}

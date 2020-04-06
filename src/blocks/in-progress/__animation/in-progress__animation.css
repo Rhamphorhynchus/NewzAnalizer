@@ -1,0 +1,12 @@
+@keyframes rotation-progress {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+.in-progress__animation {
+    margin: 0 auto;
+    background-image: url(../../../images/progress.png);
+    height: 74px;
+    width: 74px;
+    animation: rotation-progress 1s linear infinite;
+}

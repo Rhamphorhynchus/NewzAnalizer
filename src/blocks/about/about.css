@@ -1,0 +1,32 @@
+@import url('__logo-container/about__logo-container.css');
+@import url('__logo-wrapper/about__logo-wrapper.css');
+@import url('__logo/about__logo.css');
+@import url('__content/about__content.css');
+@import url('__title/about__title.css');
+@import url('__text/about__text.css');
+
+.about {
+    margin: 0;
+    padding: 80px 104px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .about {
+        margin: 0;
+        padding: 40px 40px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about {
+        margin: 0;
+        padding: 32px 16px;
+        display: flex;
+        flex-direction: column;
+        /*justify-content: space-between;*/
+    }
+}

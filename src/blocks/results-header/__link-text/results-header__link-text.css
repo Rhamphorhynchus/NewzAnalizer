@@ -1,0 +1,18 @@
+.results-header__link-text {
+    margin: 0;
+    padding: 0 2px 7px 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /*display: flex;
+    align-items: center;
+    text-align: center;*/
+    color: #1A1B22;
+    transition: all 0.15s ease-out;
+}
+
+.results-header__link:hover .results-header__link-text {
+    color: #999;
+}

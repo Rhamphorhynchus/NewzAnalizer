@@ -1,0 +1,13 @@
+.results-header__link {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    /*border: 1px solid red;*/
+}
+
+@media screen and (max-width: 640px) {
+    .results-header__link  {
+        padding-top: 16px;
+    }
+}

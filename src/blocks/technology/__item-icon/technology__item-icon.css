@@ -1,0 +1,11 @@
+.technology__item-icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    object-fit: none;
+    /*filter: invert(78%) sepia(0%) saturate(765%) hue-rotate(191deg) brightness(81%) contrast(76%);*/
+}
+
+.technology__item-link:hover .technology__item-icon {
+    /*filter: none;*/
+}

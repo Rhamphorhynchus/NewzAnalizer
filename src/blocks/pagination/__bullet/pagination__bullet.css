@@ -1,0 +1,13 @@
+.pagination__bullet {
+    margin: 0 4px;
+    width: 8px;
+    height: 8px;
+    background: #D1D2D6;
+    display: inline-block;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.pagination__bullet:focus {
+    outline: none;
+}

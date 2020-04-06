@@ -1,0 +1,30 @@
+.technology__title {
+    margin: 0;
+    padding: 0;
+    width: 344px;
+    font-family: 'Roboto Slab', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1a1b22;
+    /*border: 1px solid red;*/
+}
+
+@media screen and (min-width: 481px) and (max-width: 1140px) {
+    .technology__title {
+        width: 336px;
+        font-size: 30px;
+        line-height: 34px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .technology__title {
+        padding-bottom: 8px;
+        width: 100%;
+        max-width: 400px;
+        font-size: 30px;
+        line-height: 40px;
+    }
+}

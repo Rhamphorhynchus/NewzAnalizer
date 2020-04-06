@@ -1,0 +1,23 @@
+@import url('__title/for-clients__title.css');
+@import url('__content/for-client__content.css');
+@import url('__content-item/for-client__content-item.css');
+
+.for-clients {
+    margin: 0;
+    padding: 80px 104px 94px;
+    background-color: #fff;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .for-clients {
+        margin: 0;
+        padding: 30px 40px 26px 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .for-clients {
+        margin: 0;
+        padding: 16px;
+    }
+}

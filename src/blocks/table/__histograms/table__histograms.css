@@ -1,0 +1,9 @@
+.table__histograms {
+    padding-top: 8px;
+}
+
+@media screen and (max-width: 480px) {
+    .table__histograms {
+        padding-top: 18px;
+    }
+}

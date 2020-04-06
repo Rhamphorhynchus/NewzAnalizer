@@ -1,0 +1,48 @@
+.about__logo_ {
+    display: block;
+    /*width: 464px;*/
+    position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+    height: 464px;
+    border-radius: 232px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.about__logo_ {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 464px;
+    overflow: hidden;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.about__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1000px;
+}
+
+/*
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .about__logo {
+        margin-top: 21px;
+        width: 232px;
+        height: 232px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about__logo {
+        margin: 0 auto;
+        width: 272px;
+        height: 272px;
+    }
+}
+*/
