@@ -13,7 +13,7 @@ export class NewsCardList {
 
     }
   
-    setCardsContent(response, q, date) {
+    setCardsContent(response) {
         this._cardContainer.innerHTML = "";
         if ((response.status == "ok") && (response.totalResults > 0)) {
             this._cardContainer.innerHTML = "";
