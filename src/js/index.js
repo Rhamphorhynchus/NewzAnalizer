@@ -26,7 +26,7 @@ const cardList = new NewsCardList(cardContainer, buttonNext, blockCard, card);
 const searchInput = new SearchInput(formSend, input, newsApi, dataStorage, cardList, blockWait, blockNotFound, blockCard);
 
 if (dataStorage.hasData()) {
-    const newzAnalyzerData = dataStorage.loadData(); JSON.parse(sessionStorage.newzAnalyzerDataString);
+    const newzAnalyzerData = dataStorage.loadData(); //JSON.parse(sessionStorage.newzAnalyzerDataString);
     form.querySelector('.form__input').value = newzAnalyzerData.q;
     cardList.setCardsContent(newzAnalyzerData.response, newzAnalyzerData.q, newzAnalyzerData.date)
 } else {

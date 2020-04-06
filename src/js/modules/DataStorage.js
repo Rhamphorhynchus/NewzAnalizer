@@ -15,6 +15,7 @@ export class DataStorage {
     }
 
     hasData() {
-        return localStorage.newzAnalyzerDataString !== null || localStorage.newzAnalyzerDataString !== undefined || localStorage.newzAnalyzerDataString !== "";
+        return !(localStorage.getItem("newzAnalyzerDataString") === null || localStorage.getItem("newzAnalyzerDataString") === "");
+        //return localStorage.newzAnalyzerDataString !== null || localStorage.newzAnalyzerDataString !== undefined || localStorage.newzAnalyzerDataString !== "";
     }
 }
