@@ -24,6 +24,7 @@
     width: 0;
     color: #1a1b22;
     background: none;
+    display: none;
   }
 
 .table__histogram-value-1 {

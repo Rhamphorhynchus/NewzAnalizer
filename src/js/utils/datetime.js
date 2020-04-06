@@ -1,3 +1,13 @@
+const months = {
+    nominative: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'],
+    accusative: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+};
+
+const weekdays = {
+    long: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+    short: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+};
+
 export function formatDate(date) {
  
     let dd = date.getDate();
@@ -12,15 +22,13 @@ export function formatDate(date) {
 }
 
 export function formatDateAsLongString(date) {
-    const months = {
-        nominative: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'],
-        accusative: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-    }
-
     return `${date.getDate()} ${months.accusative[date.getMonth()]}, ${date.getFullYear()}`;
 }
 
 export function formatDateAsShortString(date) {
-    const weekdaysShort = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-    return `${date.getDate()}, ${weekdaysShort[date.getDay()]}`;
+    return `${date.getDate()}, ${weekdays.short[date.getDay()]}`;
+}
+
+export function getMonthName(date) {
+    return months.nominative[date.getMonth()];
 }

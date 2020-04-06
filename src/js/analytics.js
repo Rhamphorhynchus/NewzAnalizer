@@ -1,9 +1,11 @@
 import "../pages/analytics.css";
-import { formatDate, formatDateAsShortString } from './utils/datetime';
+//import { formatDate, formatDateAsShortString } from './utils/datetime';
+import { Statistics } from './components/Statistics';
+import { DataStorage } from './modules/DataStorage';
 
 console.log("analytics.js");
 
-const totalWeekly = document.querySelector(".statistics__item-total_weekly");
+//const totalWeekly = document.querySelector(".statistics__item-total_weekly");
 
 /*
 function getDayOfWeek(date) {
@@ -12,24 +14,30 @@ function getDayOfWeek(date) {
 }
 */
 
+/*
 function setAnalytics(analytics) {
     totalWeekly.textContent = analytics.totalResults;
     const date = new Date()
-    for (let days = 1; days <= 7; days++) {
+    for (let days = 1; days <= DAYS_INTERVAL; days++) {
         const dateIndex = formatDate(date);
-        //document.querySelector(`.table__histogram-date-${7 - days}`).textContent = `${date.getDate()}, ${getDayOfWeek(date)}`;
-        document.querySelector(`.table__histogram-date-${7 - days}`).textContent = `${formatDateAsShortString(date)}`;
+        //document.querySelector(`.table__histogram-date-${DAYS_INTERVAL - days}`).textContent = `${date.getDate()}, ${getDayOfWeek(date)}`;
+        document.querySelector(`.table__histogram-date-${DAYS_INTERVAL - days}`).textContent = `${formatDateAsShortString(date)}`;
         if (analytics.values[dateIndex] !== undefined) {
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = analytics.values[dateIndex];
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-${Math.floor((analytics.values[dateIndex] / analytics.max) * 100)}`)
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).textContent = analytics.values[dateIndex];
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).classList.add(`table__histogram-value-${Math.floor((analytics.values[dateIndex] / analytics.max) * 100)}`)
         } else {
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).textContent = 0;
-            document.querySelector(`.table__histogram-value-date-${7 - days}`).classList.add(`table__histogram-value-0`)
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).textContent = 0;
+            document.querySelector(`.table__histogram-value-date-${DAYS_INTERVAL - days}`).classList.add(`table__histogram-value-0`)
         }
         date.setDate(date.getDate() - 1);
     }
 }
+*/
 
-if (sessionStorage.analytics && sessionStorage.analytics.length > 0) {
-    setAnalytics(JSON.parse(sessionStorage.analytics));
+const dataStorage = new DataStorage();
+
+if (dataStorage.hasData()) {
+    const newzAnalyzerData = dataStorage.loadData();
+    const statistics = new Statistics(null, newzAnalyzerData.response.articles, newzAnalyzerData.q,  newzAnalyzerData.response.totalResults, newzAnalyzerData.date);
+    statistics.render();
 }

@@ -7,7 +7,7 @@ export class GithubAPI {
         };
     }
 
-    __apiCall(path) {
+    _apiCall(path) {
         return fetch(this.host + path , {
             method: 'GET',
             headers: this.headers,
@@ -26,8 +26,11 @@ export class GithubAPI {
         });
     }
 
-    commits(user, repo, branch) {
-        return this.__apiCall(`/repos/${user}/${repo}/commits?sha=${branch}`);
+    commits(user, repo, branch, pagination) {
+        const path = `/repos/${user}/${repo}/commits?sha=${branch}`;
+        const query = pagination ? `${path}&page=${pagination.page}&per_page=${pagination.per_page}` : path;
+        return this._apiCall(query);
+        //return this._apiCall(`/repos/${user}/${repo}/commits?sha=${branch}`);
     }
 
 }

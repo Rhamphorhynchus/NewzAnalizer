@@ -1,38 +1,68 @@
 import "../pages/index.css";
-import { Card } from "./card";
-import { NewsAPI } from "./newsapi";
+import { NEWS_API_TOKEN } from "./constants/constatns"
+import { NewsCard } from "./components/NewsCard";
+import { NewsAPI } from "./modules/newsapi";
+import { DataStorage } from "./modules/DataStorage";
+import { SearchInput } from "./components/SearchInput";
+import { NewsCardList } from "./components/NewsCardList";
+
 console.log("index.js");
 
-const newsApi = new NewsAPI('53ed4d6d1f5c4094b07ebdaf6f4a8b5b');
-
-
-const buttonSend = document.querySelector('.user-info__button');
+//const inputQ = document.querySelector('.form');
 const formSend = document.querySelector('.form');
-const inputQ = document.querySelector('.form');
-const cardContainer = document.querySelector('.results-grid');
+const input = formSend.querySelector('.form__input');
 const blockCard = document.querySelector('.results');
-const cardTemplate = document.querySelector('.result-template');
 const blockWait = document.querySelector('.in-progress');
 const blockNotFound = document.querySelector('.not-found');
+//const blockError = document.querySelector('.not-found_theme_error');
+const cardContainer = document.querySelector('.results-grid');
 const buttonNext = document.querySelector('.results-more');
+const cardTemplate = document.querySelector('.result-template');
 
+const dataStorage = new DataStorage();
+const newsApi = new NewsAPI(NEWS_API_TOKEN);
+const card = new NewsCard(cardTemplate);
+const cardList = new NewsCardList(cardContainer, buttonNext, blockCard, card);
+const searchInput = new SearchInput(formSend, input, newsApi, dataStorage, cardList, blockWait, blockNotFound, blockCard);
+
+if (dataStorage.hasData()) {
+    const newzAnalyzerData = dataStorage.loadData(); //JSON.parse(sessionStorage.newzAnalyzerDataString);
+    form.querySelector('.form__input').value = newzAnalyzerData.q;
+    cardList.setCardsContent(newzAnalyzerData.response, newzAnalyzerData.q, newzAnalyzerData.date)
+} else {
+    blockCard.classList.add('invisible');;
+}
+
+
+//const buttonSend = document.querySelector('.user-info__button');
+//const formSend = document.querySelector('.form');
+
+
+
+
+
+
+/*
 const cardsPerAttempt = 3;
 const cardsSession = {totalCount: 0, currentPosition: 0}
 let currentCardIndex;
 let cardsResponse;
 let totalCardsCount;
+*/
 
 
-buttonNext.addEventListener('click', showNextCards);
-formSend.addEventListener('submit', sendData);
+//buttonNext.addEventListener('click', showNextCards);
+//formSend.addEventListener('submit', sendData);
 
-function AddCard(article) {
+//function AddCard(article) {
+//
+//}
 
-}
-
-function setAnalytics(articles)
+/*
+function setAnalytics(articles, q)
 {
     const analytics = {values:{}};
+    analytics.refersInTitle = 0;
 
     for (let i = 0; i < articles.length; i++) {
         let data = articles[i].publishedAt.slice(0, 10);
@@ -40,20 +70,28 @@ function setAnalytics(articles)
     }
 
     analytics.max = Object.values(analytics.values).reduce((value, max) => ((value > max) ? value : max ), 0);
+    analytics.refersInTitle = articles.reduce((previousValue, article) => {
+        if (article.title.indexOf(q) >= 0) previousValue += 1;
+        return previousValue;
+    }, 0);
     
     return analytics;
 }
+*/
 
+/*
 function imageNotFound(event) {
     event.target.setAttribute("src", require('../images/news.jpg'));
     event.target.removeEventListener('error', imageNotFound);
 }
+*/
 
+/*
 function showNextCards() {
     const firstCardIndex = currentCardIndex;
     const lastCardIndex = firstCardIndex + cardsPerAttempt < totalCardsCount ? firstCardIndex + cardsPerAttempt : totalCardsCount;
     for (let i = firstCardIndex; i < lastCardIndex; i++) {
-            const card  = new Card(null, cardTemplate);
+            const card  = new NewsCard(null, cardTemplate);
             cardContainer.appendChild(card.create(cardsResponse.articles[i]));
     }
     if (lastCardIndex == totalCardsCount) {
@@ -63,8 +101,10 @@ function showNextCards() {
     }
     currentCardIndex = lastCardIndex;
 }
+*/
 
-function SetCardsContent(response) {
+/*
+function SetCardsContent(response, q, date) {
     if ((response.status == "ok") && (response.totalResults > 0)) {
         //resetCards();
         cardContainer.innerHTML = "";
@@ -76,16 +116,18 @@ function SetCardsContent(response) {
         //    const card  = new Card(null, cardTemplate);
         //    cardContainer.appendChild(card.create(article))
         //});
-        const analytics = setAnalytics(response.articles);
+        const analytics = setAnalytics(response.articles, q);
         analytics.totalResults = response.totalResults
         //analyticsS =  JSON.stringify(analytics);
-        sessionStorage.analytics = JSON.stringify(analytics);
+        //sessionStorage.analytics = JSON.stringify(analytics);
+        sessionStorage.newzAnalyzerDataString = JSON.stringify({response, q, date});
         blockCard.classList.remove('invisible');
     } else {
         //blockNotFound.classList.add('invisible');
         blockNotFound.classList.remove('invisible');
     }
 }
+*/
 
 /*
 function SetCardsContent(response) {
@@ -121,7 +163,7 @@ function SetCardsContent(response) {
 }
 */
 
-
+/*
 function sendData(event)
 {
     blockWait.classList.remove('invisible');
@@ -131,9 +173,10 @@ function sendData(event)
     event.preventDefault();
 
     const q = document.querySelector('.form__input').value;
-    const date = new Date()
-    date.setDate(date.getDate() - 6);
-    const from = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    const toDate = new Date();
+    const fromDate = new Date(toDate);
+    fromDate.setDate(fromDate.getDate() - DAYS_INTERVAL + 1);
+    const from = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
   
     newsApi.everything({
         q,
@@ -141,10 +184,11 @@ function sendData(event)
         pageSize: 100
       }).then(response => {
         console.log(response);
-        SetCardsContent(response);
+        SetCardsContent(response, q, toDate);
       }).catch(error => {
           console.log(error);
       }).finally(() => {
         blockWait.classList.add('invisible');
       });
 }
+*/
