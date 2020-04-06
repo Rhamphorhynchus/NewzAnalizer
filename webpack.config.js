@@ -20,7 +20,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
     },
-    devtool: 'source-map',//'inline-source-map.js',
+    //devtool: 'source-map',//'inline-source-map.js',
     module: {
         rules: [{ // тут описываются правила
             test: /\.js$/, // регулярное выражение, которое ищет все js файлы
