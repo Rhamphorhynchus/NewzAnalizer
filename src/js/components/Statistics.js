@@ -1,5 +1,5 @@
-import { formatDate, formatDateAsShortString } from './../utils/datetime';
-import { DAYS_INTERVAL } from "./../constants/constatns";
+import { formatDate, formatDateAsShortString, getMonthName } from './../utils/datetime';
+import { DAYS_INTERVAL, MILLISECONDS_PER_DAY } from "./../constants/constatns";
 
 export class Statistics {
     constructor(template, articles, q, totalResults, toDate) {
@@ -9,8 +9,8 @@ export class Statistics {
         this._Q = this._q.toUpperCase();
         this._totalResults = totalResults;
         this._toDate = typeof toDate === 'string' ?  new Date(toDate) : toDate;
-        this._fromDate = new Date(toDate);
-        this._fromDate.setDate(this._fromDate.getDate() - DAYS_INTERVAL + 1);
+        this._fromDate = new Date(toDate - MILLISECONDS_PER_DAY * (DAYS_INTERVAL - 1));
+        //this._fromDate.setDate(this._fromDate.getDate() - DAYS_INTERVAL + 1);
         this._analytics = this._collectStatistics();
     }
 
@@ -58,8 +58,13 @@ export class Statistics {
     }
     */
 
+    _renderMonth() {
+        const months = this._toDate.getMonth() === this._fromDate.getMonth() ? getMonthName(this._toDate) :
+                    `${getMonthName(this._toDate)}, ${getMonthName(this._fromDate)}`;
+        document.querySelector('.table__header-title-months').textContent = months;
+    }
+
     _renderScale() {
-        if (this._toDate)
         for (let index = 1; index <= 4; index++) {
             document.querySelectorAll(`.table__header-scale-value-${index}`).forEach((element) => element.textContent = Math.floor(index * this._analytics.max / 4));
         }
@@ -90,6 +95,7 @@ export class Statistics {
     }
 
     render() {
+        this._renderMonth();
         this._renderHeader();
         this._renderScale();
         this._renderHistogram();
